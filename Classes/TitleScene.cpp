@@ -70,6 +70,22 @@ bool TitleScene::init()
     };
     startButton->setPosition(Vec2(visibleSize.width/2, visibleSize.height/2 - 200));
     this->addChild(startButton);
+    startButton->addTouchEventListener(CC_CALLBACK_2(TitleScene::touchEvent, this));
     
     return true;
+}
+
+//ボタンのタッチイベント
+void TitleScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
+{
+    switch (type)
+    {
+        case ui::Widget::TouchEventType::BEGAN:
+        {
+            CCLOG("button pushed");
+            break;
+        }
+        default:
+            break;
+    }
 }

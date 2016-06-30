@@ -23,6 +23,9 @@ public:
     
     //Implement the "static create()" method manually
     CREATE_FUNC(TitleScene);
+    
+    //ボタンのタッチイベント
+    void touchEvent(Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 };
 
 #endif /* TitleScene_hpp */
