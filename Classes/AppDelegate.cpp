@@ -1,5 +1,5 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "TitleScene.hpp"
 
 USING_NS_CC;
 
@@ -27,11 +27,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::createWithRect("HelloCpp", Rect(0, 0, 960, 640));
+        glview = GLViewImpl::createWithRect("HelloCpp", Rect(0, 0, 640, 1136));
         director->setOpenGLView(glview);
     }
 
-    director->getOpenGLView()->setDesignResolutionSize(960, 640, ResolutionPolicy::SHOW_ALL);
+    director->getOpenGLView()->setDesignResolutionSize(640, 1136, ResolutionPolicy::SHOW_ALL);
 
     // turn on display FPS
     director->setDisplayStats(true);
@@ -39,10 +39,15 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
+    //Resource配下のフォルダをSearchPathに追加する
     FileUtils::getInstance()->addSearchPath("res");
+    FileUtils::getInstance()->addSearchPath("title");
 
     // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene();
+    Scene* scene
+    {
+        TitleScene::createScene()
+    };
 
     // run
     director->runWithScene(scene);
