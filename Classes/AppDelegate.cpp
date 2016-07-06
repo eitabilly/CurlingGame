@@ -42,6 +42,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     //Resource配下のフォルダをSearchPathに追加する
     FileUtils::getInstance()->addSearchPath("res");
     FileUtils::getInstance()->addSearchPath("title");
+    FileUtils::getInstance()->addSearchPath("game");
 
     // create a scene. it's an autorelease object
     Scene* scene

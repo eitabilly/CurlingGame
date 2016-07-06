@@ -14,6 +14,7 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		302694DA1D21405A00185D38 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 302694D81D21405A00185D38 /* TitleScene.cpp */; };
 		302694DC1D2265CD00185D38 /* title in Resources */ = {isa = PBXBuildFile; fileRef = 302694DB1D2265CD00185D38 /* title */; };
+		3045B1AF1D2BA2220052E6B5 /* game in Resources */ = {isa = PBXBuildFile; fileRef = 3045B1AE1D2BA2220052E6B5 /* game */; };
 		30AC13871D252C9500486F69 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30AC13851D252C9500486F69 /* GameScene.cpp */; };
 		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		3EACC99019EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
@@ -115,6 +116,7 @@
 		302694D81D21405A00185D38 /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
 		302694D91D21405A00185D38 /* TitleScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TitleScene.hpp; sourceTree = "<group>"; };
 		302694DB1D2265CD00185D38 /* title */ = {isa = PBXFileReference; lastKnownFileType = folder; path = title; sourceTree = "<group>"; };
+		3045B1AE1D2BA2220052E6B5 /* game */ = {isa = PBXFileReference; lastKnownFileType = folder; path = game; sourceTree = "<group>"; };
 		30AC13851D252C9500486F69 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		30AC13861D252C9500486F69 /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameScene.hpp; sourceTree = "<group>"; };
 		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3045B1AE1D2BA2220052E6B5 /* game */,
 				302694DB1D2265CD00185D38 /* title */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
@@ -483,6 +486,7 @@
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
+				3045B1AF1D2BA2220052E6B5 /* game in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);

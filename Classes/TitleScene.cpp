@@ -7,8 +7,7 @@
 //
 
 #include "TitleScene.hpp"
-
-USING_NS_CC;
+#include "GameScene.hpp"
 
 Scene* TitleScene::createScene()
 {
@@ -82,7 +81,12 @@ void TitleScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
     {
         case ui::Widget::TouchEventType::BEGAN:
         {
-            CCLOG("button pushed");
+            CCLOG("start button pushed");
+            
+            Scene* scene = GameScene::createScene();
+            auto transition = TransitionCrossFade::create(0.3, scene);
+            Director::getInstance()->replaceScene(transition);
+            
             break;
         }
         default:

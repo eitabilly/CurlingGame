@@ -12,6 +12,8 @@
 #include "cocos2d.h"
 #include "ui/cocosGUI.h"
 
+USING_NS_CC;
+
 class TitleScene:public cocos2d::Layer
 {
 public:
