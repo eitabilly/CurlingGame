@@ -21,6 +21,10 @@ public:
     
     //インスタンスメソッド
 private:
+    static cocos2d::Sprite* addNewCircleAtPosition(Node *parent, Point p, bool dynamic, const char *fileName);
+    
+    static cocos2d::Sprite* addNewBoxAtPosition(Node *parent, Point p, bool dynamic, const char *fileName);
+    
     virtual bool init(); //初期化
     
     void setupScrean(); //画面の設定
