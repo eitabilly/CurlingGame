@@ -10,7 +10,7 @@
 #define GameScene_hpp
 
 #include "cocos2d.h"
-#include "StageScene.hpp"
+#include "Stage.hpp"
 #include "ui/cocosGUI.h"
 
 class GameScene:public cocos2d::Layer
@@ -23,7 +23,7 @@ public:
     virtual bool init();
     
     //ステージ
-    CC_SYNTHESIZE_RETAIN(StageScene*, _stage, Stage)
+    CC_SYNTHESIZE_RETAIN(Stage*, _stage, Stage)
     
     //Implement the "static create()" method manually
     CREATE_FUNC(GameScene);

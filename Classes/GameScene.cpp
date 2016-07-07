@@ -48,5 +48,12 @@ bool GameScene::init()
     {
         return false;
     }
+    
+    auto stage = Stage::create();
+    this->addChild(stage);
+    this->setStage(stage);
+    
+    this->scheduleUpdate();
+    
     return true;
 }
