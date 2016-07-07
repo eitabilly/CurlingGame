@@ -11,12 +11,23 @@
 
 USING_NS_CC;
 
+GameScene::GameScene()
+:_stage(nullptr)
+{
+    
+}
+
+GameScene::~GameScene()
+{
+    CC_SAFE_RELEASE_NULL(_stage);
+}
+
 Scene* GameScene::createScene()
 {
     //シーンの作成
     Scene* scene
     {
-        Scene::create()
+        Scene::createWithPhysics()
     };
     
     //レイヤーの作成

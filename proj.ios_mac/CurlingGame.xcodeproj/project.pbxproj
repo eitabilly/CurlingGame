@@ -16,7 +16,7 @@
 		302694DC1D2265CD00185D38 /* title in Resources */ = {isa = PBXBuildFile; fileRef = 302694DB1D2265CD00185D38 /* title */; };
 		30AC13871D252C9500486F69 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30AC13851D252C9500486F69 /* GameScene.cpp */; };
 		30B06CAC1D2D1A4B0016B61A /* map in Resources */ = {isa = PBXBuildFile; fileRef = 30B06CAB1D2D1A4B0016B61A /* map */; };
-		30B06CB21D2D1AA00016B61A /* Stage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30B06CB01D2D1AA00016B61A /* Stage.cpp */; };
+		30B06CB21D2D1AA00016B61A /* StageScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30B06CB01D2D1AA00016B61A /* StageScene.cpp */; };
 		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		3EACC99019EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7619C43A67006E1F66 /* CloseNormal.png */; };
@@ -98,12 +98,12 @@
 			remoteGlobalIDString = 1551A33E158F2AB200E66CFE;
 			remoteInfo = "cocos2dx Mac";
 		};
-		1AC6FB24180E99E1004C840B /* PBXContainerItemProxy */ = {
+		30B06CB51D2E7BA00016B61A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = A07A4C241783777C0073F6A7;
-			remoteInfo = "cocos2dx iOS";
+			remoteGlobalIDString = 1551A33E158F2AB200E66CFE;
+			remoteInfo = "libcocos2d Mac";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -120,8 +120,8 @@
 		30AC13851D252C9500486F69 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		30AC13861D252C9500486F69 /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameScene.hpp; sourceTree = "<group>"; };
 		30B06CAB1D2D1A4B0016B61A /* map */ = {isa = PBXFileReference; lastKnownFileType = folder; path = map; sourceTree = "<group>"; };
-		30B06CB01D2D1AA00016B61A /* Stage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stage.cpp; sourceTree = "<group>"; };
-		30B06CB11D2D1AA00016B61A /* Stage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Stage.hpp; sourceTree = "<group>"; };
+		30B06CB01D2D1AA00016B61A /* StageScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StageScene.cpp; sourceTree = "<group>"; };
+		30B06CB11D2D1AA00016B61A /* StageScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StageScene.hpp; sourceTree = "<group>"; };
 		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		46880B7619C43A67006E1F66 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
 		46880B7719C43A67006E1F66 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
@@ -312,13 +312,13 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
-				30B06CB01D2D1AA00016B61A /* Stage.cpp */,
-				30B06CB11D2D1AA00016B61A /* Stage.hpp */,
+				30B06CB01D2D1AA00016B61A /* StageScene.cpp */,
+				30B06CB11D2D1AA00016B61A /* StageScene.hpp */,
 				302694D81D21405A00185D38 /* TitleScene.cpp */,
+				302694D91D21405A00185D38 /* TitleScene.hpp */,
 				30AC13851D252C9500486F69 /* GameScene.cpp */,
 				30AC13861D252C9500486F69 /* GameScene.hpp */,
-				302694D91D21405A00185D38 /* TitleScene.hpp */,
+				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
@@ -388,7 +388,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				1AC6FB25180E99E1004C840B /* PBXTargetDependency */,
+				30B06CB61D2E7BA00016B61A /* PBXTargetDependency */,
 			);
 			name = "CurlingGame-mobile";
 			productName = iphone;
@@ -523,7 +523,7 @@
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				30AC13871D252C9500486F69 /* GameScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
-				30B06CB21D2D1AA00016B61A /* Stage.cpp in Sources */,
+				30B06CB21D2D1AA00016B61A /* StageScene.cpp in Sources */,
 				302694DA1D21405A00185D38 /* TitleScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,10 +546,10 @@
 			name = "cocos2dx Mac";
 			targetProxy = 1AC6FB15180E9959004C840B /* PBXContainerItemProxy */;
 		};
-		1AC6FB25180E99E1004C840B /* PBXTargetDependency */ = {
+		30B06CB61D2E7BA00016B61A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "cocos2dx iOS";
-			targetProxy = 1AC6FB24180E99E1004C840B /* PBXContainerItemProxy */;
+			name = "libcocos2d Mac";
+			targetProxy = 30B06CB51D2E7BA00016B61A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -580,6 +580,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
@@ -615,6 +616,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",

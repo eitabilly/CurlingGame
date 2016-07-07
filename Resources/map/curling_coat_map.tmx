@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="400" tilewidth="10" tileheight="10" nextobjectid="1">
  <tileset firstgid="1" name="curling_coat4000" tilewidth="10" tileheight="10" tilecount="25600" columns="64">
-  <image source="../../../../Volumes/Transcend/I.K.Games/素材/curling_coat4000.png" width="640" height="4000"/>
+  <image source="curling_coat4000.png" width="640" height="4000"/>
  </tileset>
  <tileset firstgid="25601" name="house500" tilewidth="10" tileheight="10" tilecount="2500" columns="50">
-  <image source="house500.png" width="500" height="500"/>
+  <image source="house.png" width="500" height="500"/>
  </tileset>
  <layer name="curling_coat" width="64" height="400">
   <data encoding="csv">
