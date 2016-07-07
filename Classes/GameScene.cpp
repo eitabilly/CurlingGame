@@ -7,3 +7,6 @@
 //
 
 #include "GameScene.hpp"
+#include "TitleScene.hpp"
+
+USING_NS_CC;

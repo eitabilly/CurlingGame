@@ -7,6 +7,7 @@
 //
 
 #include "TitleScene.hpp"
+#include "GameScene.hpp"
 
 USING_NS_CC;
 
@@ -83,6 +84,12 @@ void TitleScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
         case ui::Widget::TouchEventType::BEGAN:
         {
             CCLOG("button pushed");
+            Scene* gameScene
+            {
+                GameScene::createScene()
+            };
+            Director::getInstance()->replaceScene(gameScene);
+            
             break;
         }
         default:
