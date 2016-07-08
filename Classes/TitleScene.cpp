@@ -7,6 +7,7 @@
 //
 
 #include "TitleScene.hpp"
+#include "GameScene.hpp"
 
 USING_NS_CC;
 
@@ -83,6 +84,19 @@ void TitleScene::touchEvent(Ref *pSender, ui::Widget::TouchEventType type)
         case ui::Widget::TouchEventType::BEGAN:
         {
             CCLOG("button pushed");
+            // 何度も押せないように一度押したらアクションを無効化する
+            this->getEventDispatcher()->removeAllEventListeners();
+            // 0.5秒待ってからゲームを開始する
+            auto delay = DelayTime::create(0.2);
+            // ゲームを始めるアクション
+            auto startGame = CallFunc::create([]{
+                Scene* scene { GameScene::createScene()};
+                auto transition = TransitionCrossFade::create(0.5, scene);
+                Director::getInstance()->replaceScene(transition);
+            });
+            
+            this->runAction(Sequence::create(delay,startGame,NULL));
+            
             break;
         }
         default:
