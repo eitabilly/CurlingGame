@@ -20,7 +20,7 @@ public:
     static cocos2d::Scene* createScene();
     
     //Here's a difference. Method 'init' in cocos2d-x returns bool. instead of returning 'id' in cocos2d-iphone
-    virtual bool init();
+    virtual bool init() override;
     
     //ステージ
     CC_SYNTHESIZE_RETAIN(Stage*, _stage, Stage)
@@ -30,6 +30,7 @@ public:
     
     //ボタンのタッチイベント
     void touchEvent(Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
+
     
 protected:
     GameScene();

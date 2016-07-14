@@ -11,6 +11,9 @@
 
 USING_NS_CC;
 
+///重力を表すベクトル
+const Vec2 ZERO_GRAVITY = Vec2(0,0);
+
 GameScene::GameScene()
 :_stage(nullptr)
 {
@@ -29,6 +32,13 @@ Scene* GameScene::createScene()
     {
         Scene::createWithPhysics()
     };
+    
+    //物理空間を取り出す
+    auto world = scene->getPhysicsWorld();
+    
+    //重力を設定する(ゼログラビティ)
+    world->setGravity(ZERO_GRAVITY);
+    
     
     //レイヤーの作成
     Layer* layer
@@ -49,6 +59,7 @@ bool GameScene::init()
         return false;
     }
     
+    //Stage.cppを呼び出しステージを作成する
     auto stage = Stage::create();
     this->addChild(stage);
     this->setStage(stage);
@@ -57,3 +68,4 @@ bool GameScene::init()
     
     return true;
 }
+

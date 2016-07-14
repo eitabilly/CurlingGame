@@ -9,6 +9,19 @@
 #ifndef Stone_hpp
 #define Stone_hpp
 
-#include <stdio.h>
+#include "cocos2d.h"
+
+class Stone : public cocos2d::Layer
+{
+protected:
+    Stone();
+    virtual ~Stone();
+    bool init() override;
+    
+public:
+    
+    CREATE_FUNC(Stone);
+};
+
 
 #endif /* Stone_hpp */
