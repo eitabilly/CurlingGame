@@ -21,6 +21,17 @@ protected:
 public:
     
     CREATE_FUNC(Stone);
+    
+private:
+    
+    // Touchイベントの開始地点
+    cocos2d::Point currentTouchPoint;
+    
+    // Touchイベント用
+    bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event) override;
+    void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event) override;
+    void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event) override;
+    void onTouchCancelled(cocos2d::Touch* touch, cocos2d::Event* event) override;
 };
 
 
