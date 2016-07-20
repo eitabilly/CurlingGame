@@ -64,7 +64,6 @@ bool GameScene::init()
     //画面の大きさを取り出す
     auto winSize = Director::getInstance()->getWinSize();
     
-    
     //Stage.cppを呼び出しステージを作成する
     auto stage = Stage::create();
     this->addChild(stage);

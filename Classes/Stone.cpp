@@ -30,7 +30,7 @@ bool Stone::init()
     //画面の大きさを取り出す
     auto winSize = Director::getInstance()->getWinSize();
     
-    //テスト
+    //ストーン(赤)
     auto sprite = Sprite::create("stone_red.png");
     //スプライトと同じ大きさの剛体を作成する
     auto pyhsicsBody = PhysicsBody::createCircle(40);
