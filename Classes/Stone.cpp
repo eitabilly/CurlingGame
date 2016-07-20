@@ -27,11 +27,19 @@ bool Stone::init()
         return false;
     }
     
-    Sprite* stone = Sprite::create("redstone.png");
-    auto body = PhysicsBody::createCircle(this->getContentSize().width / 2.0);
-    body->setRotationEnable(true);
-    body->setMass(1.0f); // 重さを指定（ここが無いと後で飛ばせなくなる）
-    stone->setPhysicsBody(body);
+    //画面の大きさを取り出す
+    auto winSize = Director::getInstance()->getWinSize();
+    
+    //テスト
+    auto sprite = Sprite::create("stone_red.png");
+    //スプライトと同じ大きさの剛体を作成する
+    auto pyhsicsBody = PhysicsBody::createCircle(40);
+    //剛体をSpriteに付ける
+    sprite->setPhysicsBody(pyhsicsBody);
+    sprite->setPosition(Vec2(winSize.width / 2.0, 200));
+    
+    this->addChild(sprite);
+    
     
     return true;
 }

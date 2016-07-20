@@ -21,21 +21,9 @@ protected:
     
 public:
     void update(float dt) override;
-    
-    //タイルマップ
-    CC_SYNTHESIZE_RETAIN(cocos2d::TMXTiledMap*, _tiledMap, TiledMap);
-    //ストーン
-    CC_SYNTHESIZE_RETAIN(Stone *, _redstone, Redstone);
+
     CREATE_FUNC(Stage);
     
-private:
-    /** 指定のレイヤーの得定位置のタイルに剛体を設置する
-     *指定座標にタイルがなかった場合はnullptrを返す
-     *@param layer 対象のレイヤー
-     *@param coordinate 対象タイルのあるマップ上の座標
-     *@return タイルのスプライト　またはnullptr
-     */
-    cocos2d::Sprite* addPhysicsBody(cocos2d::TMXLayer *layer, cocos2d::Vec2& coordinate);
 };
 
 #endif /* Stage_hpp */

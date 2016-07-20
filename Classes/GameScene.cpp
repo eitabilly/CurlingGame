@@ -16,6 +16,7 @@ const Vec2 ZERO_GRAVITY = Vec2(0,0);
 
 GameScene::GameScene()
 :_stage(nullptr)
+,_redstone(nullptr)
 {
     
 }
@@ -23,6 +24,7 @@ GameScene::GameScene()
 GameScene::~GameScene()
 {
     CC_SAFE_RELEASE_NULL(_stage);
+    CC_SAFE_RELEASE_NULL(_redstone);
 }
 
 Scene* GameScene::createScene()
@@ -59,10 +61,19 @@ bool GameScene::init()
         return false;
     }
     
+    //画面の大きさを取り出す
+    auto winSize = Director::getInstance()->getWinSize();
+    
+    
     //Stage.cppを呼び出しステージを作成する
     auto stage = Stage::create();
     this->addChild(stage);
     this->setStage(stage);
+    
+    //Stone.cppを呼び出しストーンを作成する
+    auto redstone = Stone::create();
+    this->addChild(redstone);
+    this->setRedstone(redstone);
     
     this->scheduleUpdate();
     

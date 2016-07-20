@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "Stage.hpp"
+#include "Stone.hpp"
 #include "ui/cocosGUI.h"
 
 class GameScene:public cocos2d::Layer
@@ -23,15 +24,17 @@ public:
     virtual bool init() override;
     
     //ステージ
-    CC_SYNTHESIZE_RETAIN(Stage*, _stage, Stage)
+    CC_SYNTHESIZE_RETAIN(Stage*, _stage, Stage);
+    //ストーン
+    CC_SYNTHESIZE_RETAIN(Stone *, _redstone, Redstone);
     
     //Implement the "static create()" method manually
     CREATE_FUNC(GameScene);
     
     //ボタンのタッチイベント
     void touchEvent(Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
-
     
+       
 protected:
     GameScene();
     virtual ~GameScene();
