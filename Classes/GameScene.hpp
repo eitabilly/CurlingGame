@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "Stage.hpp"
 #include "Stone.hpp"
+#include "CurlingSprite.hpp"
 #include "ui/cocosGUI.h"
 
 class GameScene:public cocos2d::Layer
@@ -23,21 +24,41 @@ public:
     //Here's a difference. Method 'init' in cocos2d-x returns bool. instead of returning 'id' in cocos2d-iphone
     virtual bool init() override;
     
-    //ステージ
-    CC_SYNTHESIZE_RETAIN(Stage*, _stage, Stage);
-    //ストーン
-    CC_SYNTHESIZE_RETAIN(Stone *, _redstone, Redstone);
+    // a selector callback
+    void menuCloseCallback(cocos2d::Ref* pSender);
     
     //Implement the "static create()" method manually
     CREATE_FUNC(GameScene);
     
-    //ボタンのタッチイベント
-    void touchEvent(Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
+    // タッチ関係のイベント
+    
+    /** タッチされた座標を読み取り、範囲内をタッチしていた場合trueを返す
+     *@param Touch*pTouch タッチされた座標
+     *@param Event*pEvent イベント
+     *@return bool true or false
+     */
+    bool onTouchBegan(cocos2d::Touch* pTouch, cocos2d::Event* pEvent) override;
+    
+    /** タッチされた座標がドラックされた時のドラッグ先の座標を渡す
+     *@param Touch*pTouch タッチされた座標
+     *@param Event*pEvent イベント
+     */
+    void onTouchMoved(cocos2d::Touch* pTouch, cocos2d::Event* pEvent) override;
+    
+    /** タッチ関連情報を初期化することでタッチ関連を終了する
+     *@param Touch*pTouch タッチされた座標
+     *@param Event*pEvent イベント
+     */
+    void onTouchEnded(cocos2d::Touch* pTouch, cocos2d::Event* pEvent) override;
     
        
 protected:
     GameScene();
     virtual ~GameScene();
+    
+    CurlingSprite*  curlingStage;
+    CurlingSprite*  curlingStone;
+    
     
 };
 

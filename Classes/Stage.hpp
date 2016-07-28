@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "Stone.hpp"
+#include "CurlingSprite.hpp"
 
 class Stage : public cocos2d::Layer
 {

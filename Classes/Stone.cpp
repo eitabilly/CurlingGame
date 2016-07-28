@@ -13,6 +13,9 @@ USING_NS_CC;
 
 // tag list
 #define CHAR_OBJTAG 100
+#define PULL_LINE_OBJTAG 200
+
+#define CROKUNIT_REG_VELOCITY_RATE		0.04f	// 速度減衰係数
 
 Stone::Stone()
 {
@@ -36,12 +39,27 @@ bool Stone::init()
     
     //ストーン(赤)
     auto sprite = Sprite::create("stone_red.png");
+    
+    auto material = PHYSICSBODY_MATERIAL_DEFAULT;
+    material.density   = 1.0f; // 密度
+    material.restitution = 0.8f; // 反発係数
+    material.friction    = 1.0f; // 摩擦係数
+    
     //スプライトと同じ大きさの剛体を作成する
-    auto pyhsicsBody = PhysicsBody::createCircle(40);
+    PhysicsBody* physicsBody = PhysicsBody::createCircle(getContentSize().width / 2, material);
+    
+    physicsBody->setMass(1.0f); // 質量
+    physicsBody->setCategoryBitmask( 1 ); // カテゴリー
+    physicsBody->setCollisionBitmask( 1 ); // 衝突判定するカテゴリー
+    physicsBody->setDynamic(true); // 重力の影響を有効化
+    
     //剛体をSpriteに付ける
-    sprite->setPhysicsBody(pyhsicsBody);
+    sprite->setPhysicsBody(physicsBody);
     sprite->setTag(CHAR_OBJTAG);
     sprite->setPosition(Vec2(winSize.width / 2.0, 200));
+    
+    // 速度減衰処理を独自実装
+    schedule(schedule_selector(Stone::registVelocity));
     
     this->addChild(sprite);
     
@@ -61,38 +79,29 @@ bool Stone::init()
     return true;
 }
 
-//タッチ開始 最初に１度だけ呼ばれる
-bool Stone::onTouchBegan(Touch* touch, Event* event)
+void Stone::registVelocity(float)
 {
-    // チキンの矩形情報を求める
-    auto* charSprite = (Sprite*)this->getChildByTag(CHAR_OBJTAG);
-    Point point = charSprite->getPosition();
-    int width = charSprite->getContentSize().width;
-    int height = charSprite->getContentSize().height;
-    Rect charSpriteRect = Rect(point.x - (width / 2), point.y - (height / 2), width,height);
-    //タッチの位置を取得
-    auto tPos = touch->getLocation();
-    // タッチ位置がチキン矩形内か判定
-    if ( charSpriteRect.containsPoint(tPos) == true )
-    {// チキンがタッチされた！
-        CCLOG("stone pushed");
-        // ここに処理をいろいろと書くのだよ。
-        return true;
+    if(0 < getPhysicsBody()->getVelocity().length()) {
+        // 減衰処理
+        Vec2 tmp(getPhysicsBody()->getVelocity());
+        if(tmp.length() < 1.0f) {
+            getPhysicsBody()->setVelocity(Vec2(0.0f, 0.0f));
+        }
+        else {
+            tmp.scale(CROKUNIT_REG_VELOCITY_RATE);
+            getPhysicsBody()->setVelocity(getPhysicsBody()->getVelocity()-tmp);
+        }
     }
-    // ここまで処理が来たということはチキンがタッチされなかったということ。
-    // falseを返すと以降のタッチイベントは呼ばれない
-    return true;
 }
-// ドラッグする最中ずっと呼ばれる
-void Stone::onTouchMoved(Touch* touch, Event* event)
+
+void Stone::update(float dt)
 {
-}
-// タッチを離すと呼ばれる
-void Stone::onTouchEnded(Touch* touch, Event* event)
-{
-}
-// タッチがキャンセルされると呼ばれる
-void Stone::onTouchCancelled(Touch* touch, Event* event)
-{
-    // キャンセル時も一応線を削除
+    auto* draw = dynamic_cast<DrawNode*>(this->getChildByTag(PULL_LINE_OBJTAG));
+    if ( draw != nullptr )
+    {//存在した場合＝ひっぱり中なのでひっぱりラインを更新
+        draw->clear();
+        auto* charSprite = (Sprite*)this->getChildByTag(CHAR_OBJTAG);
+        auto charSpritePos = charSprite->getPosition();
+        draw->drawSegment(Vec2(charSpritePos.x, charSpritePos.y), Vec2(currentTouchPoint.x, currentTouchPoint.y), 2.0f, Color4F(.5f, 1.0f, .7f, 1.0f));
+    }
 }

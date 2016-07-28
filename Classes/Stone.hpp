@@ -10,6 +10,7 @@
 #define Stone_hpp
 
 #include "cocos2d.h"
+#include "CurlingSprite.hpp"
 
 class Stone : public cocos2d::Layer
 {
@@ -22,16 +23,15 @@ public:
     
     CREATE_FUNC(Stone);
     
+    // 速度減衰処理（重力設定できないので独自実装）
+    void registVelocity(float);
+    
 private:
     
     // Touchイベントの開始地点
     cocos2d::Point currentTouchPoint;
     
-    // Touchイベント用
-    bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event) override;
-    void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event) override;
-    void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event) override;
-    void onTouchCancelled(cocos2d::Touch* touch, cocos2d::Event* event) override;
+    void update(float dt) override;
 };
 
 
