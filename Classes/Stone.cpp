@@ -37,8 +37,8 @@ void Stone::clearTouchPoint(void)
 {
     // 弾き処理（簡易版）
     if(isTouched()) {
-        Vec2 vDirc(dragPoint.x-touchPoint.x, dragPoint.y-touchPoint.y);
-        setPosition(getPosition().x-vDirc.x, getPosition().y-vDirc.y);
+        Vec2 vDirc(dragPoint.x - touchPoint.x, dragPoint.y - touchPoint.y);
+        setPosition(getPosition().x - vDirc.x, getPosition().y - vDirc.y);
     }
     // 初期化
     touchPoint.set(0.0f, 0.0f);
@@ -55,7 +55,7 @@ void Stone::setPositionWithTouchPoint(Vec2 point)
         // 自分のローカル座標へ変換
         dragPoint = convertToNodeSpace(point);
         // 三角形の底辺の左右の太さ
-        Vec2 vSide(dragPoint.y-touchPoint.y, -(dragPoint.x-touchPoint.x));
+        Vec2 vSide(dragPoint.y - touchPoint.y, - (dragPoint.x - touchPoint.x));
         vSide.normalize();
         vSide.scale(50.0f);
         // 描画

@@ -12,7 +12,6 @@
 #include "cocos2d.h"
 #include "Stage.hpp"
 #include "Stone.hpp"
-#include "CurlingSprite.hpp"
 #include "ui/cocosGUI.h"
 
 class GameScene:public cocos2d::Layer
