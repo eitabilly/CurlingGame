@@ -36,19 +36,19 @@ public:
      *@param Event*pEvent イベント
      *@return bool true or false
      */
-    bool onTouchBegan(cocos2d::Touch* pTouch, cocos2d::Event* pEvent) override;
+    bool onTouchBegan(cocos2d::Touch* pTouch, cocos2d::Event* pEvent);
     
     /** タッチされた座標がドラックされた時のドラッグ先の座標を渡す
      *@param Touch*pTouch タッチされた座標
      *@param Event*pEvent イベント
      */
-    void onTouchMoved(cocos2d::Touch* pTouch, cocos2d::Event* pEvent) override;
+    void onTouchMoved(cocos2d::Touch* pTouch, cocos2d::Event* pEvent);
     
     /** タッチ関連情報を初期化することでタッチ関連を終了する
      *@param Touch*pTouch タッチされた座標
      *@param Event*pEvent イベント
      */
-    void onTouchEnded(cocos2d::Touch* pTouch, cocos2d::Event* pEvent) override;
+    void onTouchEnded(cocos2d::Touch* pTouch, cocos2d::Event* pEvent);
     
        
 protected:

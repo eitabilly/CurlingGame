@@ -51,6 +51,7 @@ void Stone::clearTouchPoint(void)
 
 void Stone::setPositionWithTouchPoint(Vec2 point)
 {
+    CCLOG("setPositionWithTouchPoint");
     if(isTouched()) {
         // 自分のローカル座標へ変換
         dragPoint = convertToNodeSpace(point);
