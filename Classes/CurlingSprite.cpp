@@ -67,3 +67,5 @@ void CurlingSprite::setPositionWithTouchPoint(Vec2 point)
         }
     }
 }
+
+

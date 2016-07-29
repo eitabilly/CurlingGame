@@ -59,7 +59,6 @@ protected:
     CurlingSprite*  curlingStage;
     CurlingSprite*  curlingStone;
     
-    
 };
 
 

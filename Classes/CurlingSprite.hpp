@@ -21,6 +21,8 @@ public:
      */
     CurlingSprite(const std::string& filename);
     
+    Stone(const std::string& filename);
+    
     
     // タッチ判定関連
     
@@ -62,7 +64,7 @@ public:
      */
     void setEnableTouchMove(bool enable) {
         bEnableTouchMove = enable;
-    }
+    };
     
     /** フラグを返す
      *@param void 
@@ -70,7 +72,7 @@ public:
      */
     bool isEnableTouchMove(void) const {
         return bEnableTouchMove;
-    }
+    };
     
     
 protected:

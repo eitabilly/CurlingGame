@@ -55,9 +55,9 @@ bool GameScene::init()
     curlingStage->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
     this->addChild(curlingStage);
     
-    curlingStone = new CurlingSprite("redstone.png");
-    curlingStone->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-    this->addChild(curlingStone);
+    curlingStone = new CurlingSprite("stone_red.png");
+    curlingStone->setPosition(Vec2(0.0f,0.0f));
+    curlingStage->addChild(curlingStone);
     
     auto listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = CC_CALLBACK_2(GameScene::onTouchBegan, this);
@@ -73,15 +73,15 @@ bool GameScene::onTouchBegan(Touch* pTouch, Event* pEvent)
 {
     Vec2 pos = pTouch->getLocation();
     
-    if(curlingStage->isTouchPoint(pos))
-    {
-        curlingStage->setTouchPoint(pos);
-        log("Touched on Stage");
-    }
-    else if(curlingStone->isTouchPoint(pos))
+    if(curlingStone->isTouchPoint(pos))
     {
         curlingStone->setTouchPoint(pos);
         log("Touched on Stone");
+    }
+    else if(curlingStage->isTouchPoint(pos))
+    {
+        curlingStage->setTouchPoint(pos);
+        log("Touched on Stage");
     }
     
     return true;
@@ -90,12 +90,12 @@ bool GameScene::onTouchBegan(Touch* pTouch, Event* pEvent)
 void GameScene::onTouchMoved(Touch* pTouch, Event* pEvent)
 {
     Vec2 pos = pTouch->getLocation();
-    curlingStage->setPositionWithTouchPoint(pos);
     curlingStone->setPositionWithTouchPoint(pos);
+    curlingStage->setPositionWithTouchPoint(pos);
 }
 
 void GameScene::onTouchEnded(Touch* pTouch, Event* pEvent)
 {
-    curlingStage->clearTouchPoint();
     curlingStone->clearTouchPoint();
+    curlingStage->clearTouchPoint();
 }
