@@ -55,9 +55,9 @@ bool GameScene::init()
     curlingStage->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
     this->addChild(curlingStage);
     
-    curlingStone = new CurlingSprite("stone_red.png");
-    curlingStone->setPosition(Vec2(0.0f,0.0f));
-    curlingStage->addChild(curlingStone);
+    curlingStone = new Stone("stone_red.png");
+    curlingStone->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+    this->addChild(curlingStone);
     
     auto listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = CC_CALLBACK_2(GameScene::onTouchBegan, this);

@@ -68,4 +68,12 @@ void CurlingSprite::setPositionWithTouchPoint(Vec2 point)
     }
 }
 
+void CurlingSprite::setEnableTouchMove(bool enable) {
+    bEnableTouchMove = enable;
+}
+
+bool CurlingSprite::isEnableTouchMove(void) const {
+    return bEnableTouchMove;
+}
+
 

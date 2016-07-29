@@ -21,9 +21,6 @@ public:
      */
     CurlingSprite(const std::string& filename);
     
-    Stone(const std::string& filename);
-    
-    
     // タッチ判定関連
     
     /** タッチされたポイントがスプライトの範囲内かどうかを判定する
@@ -62,17 +59,13 @@ public:
     /** 引数enable を受け取った時、フラグを書き換える。初期状態はtrue
      *@param bool true or false
      */
-    void setEnableTouchMove(bool enable) {
-        bEnableTouchMove = enable;
-    };
+    virtual void setEnableTouchMove(bool enable);
     
     /** フラグを返す
      *@param void 
      *@return bool true or false
      */
-    bool isEnableTouchMove(void) const {
-        return bEnableTouchMove;
-    };
+    bool isEnableTouchMove(void) const;
     
     
 protected:

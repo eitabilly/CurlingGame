@@ -18,9 +18,6 @@ public:
     //コンストラクタ
     Stone(const std::string& filename);
     
-    bool init() override;
-
-    
     // タッチ関連
     
     /** 引数の座標を起点として、タッチ状態にする
@@ -40,9 +37,6 @@ public:
      *@return void
      */
     virtual void setPositionWithTouchPoint(cocos2d::Vec2);
-    
-    // 速度減衰処理（重力設定できないので独自実装）
-    void registVelocity(float);
     
 protected:
     // ドラッグ描画用

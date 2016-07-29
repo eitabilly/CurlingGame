@@ -10,40 +10,12 @@
 
 USING_NS_CC;
 
-#define CROKUNIT_REG_VELOCITY_RATE		0.04f	// 速度減衰係数
-
 Stone::Stone(const std::string& filename)
 :CurlingSprite(filename)
 {
     pDrawNode = DrawNode::create();
     addChild(pDrawNode);
     setEnableTouchMove(false);
-}
-
-bool Stone::init()
-{
-    //画面の大きさを取り出す
-    auto winSize = Director::getInstance()->getWinSize();
-    
-    // 速度減衰処理を独自実装
-    schedule(schedule_selector(Stone::registVelocity));
-    
-    return true;
-}
-
-void Stone::registVelocity(float)
-{
-    if(0 < getPhysicsBody()->getVelocity().length()) {
-        // 減衰処理
-        Vec2 tmp(getPhysicsBody()->getVelocity());
-        if(tmp.length() < 1.0f) {
-            getPhysicsBody()->setVelocity(Vec2(0.0f, 0.0f));
-        }
-        else {
-            tmp.scale(CROKUNIT_REG_VELOCITY_RATE);
-            getPhysicsBody()->setVelocity(getPhysicsBody()->getVelocity()-tmp);
-        }
-    }
 }
 
 void Stone::setTouchPoint(Vec2 point)
