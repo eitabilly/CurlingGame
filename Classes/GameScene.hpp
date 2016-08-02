@@ -32,23 +32,24 @@ public:
     // タッチ関係のイベント
     
     /** タッチされた座標を読み取り、範囲内をタッチしていた場合trueを返す
+     *  ステージをタッチした時と、ストーンをタッチした時に個別のログを表示する
      *@param Touch*pTouch タッチされた座標
      *@param Event*pEvent イベント
      *@return bool true or false
      */
-    bool onTouchBegan(cocos2d::Touch* pTouch, cocos2d::Event* pEvent);
+    bool onTouchBegan(cocos2d::Touch* pTouch, cocos2d::Event* pEvent) override;
     
     /** タッチされた座標がドラックされた時のドラッグ先の座標を渡す
      *@param Touch*pTouch タッチされた座標
      *@param Event*pEvent イベント
      */
-    void onTouchMoved(cocos2d::Touch* pTouch, cocos2d::Event* pEvent);
+    void onTouchMoved(cocos2d::Touch* pTouch, cocos2d::Event* pEvent) override;
     
     /** タッチ関連情報を初期化することでタッチ関連を終了する
      *@param Touch*pTouch タッチされた座標
      *@param Event*pEvent イベント
      */
-    void onTouchEnded(cocos2d::Touch* pTouch, cocos2d::Event* pEvent);
+    void onTouchEnded(cocos2d::Touch* pTouch, cocos2d::Event* pEvent) override;
     
        
 protected:

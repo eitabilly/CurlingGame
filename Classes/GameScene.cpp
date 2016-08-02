@@ -52,13 +52,14 @@ bool GameScene::init()
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     curlingStage = new CurlingSprite("curling_coat.png");
-    curlingStage->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+    curlingStage->setPosition(Vec2(visibleSize.width/2 + origin.x, 2048));
     this->addChild(curlingStage);
     
     curlingStone = new Stone("stone_red.png");
-    curlingStone->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-    this->addChild(curlingStone);
+    curlingStone->setPosition(Vec2(visibleSize.width/2 + origin.x,200.0f));
+    curlingStage->addChild(curlingStone);
     
+    //タッチ関係
     auto listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = CC_CALLBACK_2(GameScene::onTouchBegan, this);
     listener->onTouchMoved = CC_CALLBACK_2(GameScene::onTouchMoved, this);
@@ -70,6 +71,7 @@ bool GameScene::init()
     return true;
 }
 
+//タッチ処理を開始するためのもの
 bool GameScene::onTouchBegan(Touch* pTouch, Event* pEvent)
 {
     Vec2 pos = pTouch->getLocation();
@@ -88,6 +90,7 @@ bool GameScene::onTouchBegan(Touch* pTouch, Event* pEvent)
     return true;
 }
 
+//タッチを移動（ドラッグ）する時
 void GameScene::onTouchMoved(Touch* pTouch, Event* pEvent)
 {
     Vec2 pos = pTouch->getLocation();
@@ -95,6 +98,7 @@ void GameScene::onTouchMoved(Touch* pTouch, Event* pEvent)
     curlingStage->setPositionWithTouchPoint(pos);
 }
 
+//タッチの終了
 void GameScene::onTouchEnded(Touch* pTouch, Event* pEvent)
 {
     curlingStone->clearTouchPoint();

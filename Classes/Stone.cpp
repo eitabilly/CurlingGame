@@ -18,6 +18,7 @@ Stone::Stone(const std::string& filename)
     setEnableTouchMove(false);
 }
 
+//タッチした場所を返す
 void Stone::setTouchPoint(Vec2 point)
 {
     // 弾き処理は自分のローカル座標で行うので基点は中心
@@ -33,10 +34,15 @@ void Stone::setTouchPoint(Vec2 point)
     CurlingSprite::setTouchPoint(point);
 }
 
+//タッチ座標を初期化　現在は弾き処理も含めている
 void Stone::clearTouchPoint(void)
 {
     // 弾き処理（簡易版）
     if(isTouched()) {
+        if (dragPoint.x == 0.0f && dragPoint.y == 0.0f){
+            touchPoint.x = 0.0f;
+            touchPoint.y = 0.0f;
+        }
         Vec2 vDirc(dragPoint.x - touchPoint.x, dragPoint.y - touchPoint.y);
         setPosition(getPosition().x - vDirc.x, getPosition().y - vDirc.y);
     }
@@ -49,9 +55,9 @@ void Stone::clearTouchPoint(void)
     CurlingSprite::clearTouchPoint();
 }
 
+//タッチ座標をそれぞれのローカル座標に変更する　現在はドラッグした距離に応じて三角形を表示する
 void Stone::setPositionWithTouchPoint(Vec2 point)
 {
-    CCLOG("setPositionWithTouchPoint");
     if(isTouched()) {
         // 自分のローカル座標へ変換
         dragPoint = convertToNodeSpace(point);
