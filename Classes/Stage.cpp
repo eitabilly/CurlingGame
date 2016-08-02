@@ -11,14 +11,13 @@
 USING_NS_CC;
 
 Stage::Stage()
-:_tiledMap(nullptr)
 {
     
 }
 
 Stage::~Stage()
 {
-    CC_SAFE_RELEASE_NULL(_tiledMap);
+
 }
 
 bool Stage::init()
@@ -28,15 +27,22 @@ bool Stage::init()
         return false;
     }
     
-    //マップファイルからノード作成
-    auto map = TMXTiledMap::create("map/curling_coat_map.tmx");
-    this->addChild(map);
-    this->setTiledMap(map);
+    
+    //画面の大きさを取り出す
+    auto winSize = Director::getInstance()->getWinSize();
+    
+    // 背景
+    Sprite* floor = Sprite::create("curling_coat.png");
+    floor->setAnchorPoint(Vec2(0 , 0));
+    floor->setPosition(Vec2(0 , 0));
+    this->addChild(floor);
+    
     
     this->scheduleUpdate();
     
     return true;
 }
+
 
 void Stage::update(float dt)
 {

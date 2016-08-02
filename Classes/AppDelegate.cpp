@@ -43,6 +43,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     FileUtils::getInstance()->addSearchPath("res");
     FileUtils::getInstance()->addSearchPath("title");
     FileUtils::getInstance()->addSearchPath("map");
+    FileUtils::getInstance()->addSearchPath("stone");
 
     // create a scene. it's an autorelease object
     Scene* scene

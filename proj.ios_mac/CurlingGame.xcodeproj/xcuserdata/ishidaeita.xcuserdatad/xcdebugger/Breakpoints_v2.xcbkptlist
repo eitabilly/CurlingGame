@@ -29,7 +29,11 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "89"
             endingLineNumber = "89"
+<<<<<<< HEAD
             landmarkName = "GameScene::init()"
+=======
+            landmarkName = "GameScene::onTouchBegan(Touch* pTouch, Event* pEvent)"
+>>>>>>> pullstone
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
