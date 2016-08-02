@@ -14,6 +14,7 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		302694DA1D21405A00185D38 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 302694D81D21405A00185D38 /* TitleScene.cpp */; };
 		302694DC1D2265CD00185D38 /* title in Resources */ = {isa = PBXBuildFile; fileRef = 302694DB1D2265CD00185D38 /* title */; };
+		30731E371D48E3220048996A /* CurlingSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30731E351D48E3220048996A /* CurlingSprite.cpp */; };
 		309BD82C1D2E912800403107 /* Stage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 309BD82A1D2E912800403107 /* Stage.cpp */; };
 		309BD82E1D2F7DCC00403107 /* stone in Resources */ = {isa = PBXBuildFile; fileRef = 309BD82D1D2F7DCC00403107 /* stone */; };
 		30AC13871D252C9500486F69 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30AC13851D252C9500486F69 /* GameScene.cpp */; };
@@ -117,6 +118,8 @@
 		302694D81D21405A00185D38 /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
 		302694D91D21405A00185D38 /* TitleScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TitleScene.hpp; sourceTree = "<group>"; };
 		302694DB1D2265CD00185D38 /* title */ = {isa = PBXFileReference; lastKnownFileType = folder; path = title; sourceTree = "<group>"; };
+		30731E351D48E3220048996A /* CurlingSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CurlingSprite.cpp; sourceTree = "<group>"; };
+		30731E361D48E3220048996A /* CurlingSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CurlingSprite.hpp; sourceTree = "<group>"; };
 		309BD82A1D2E912800403107 /* Stage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stage.cpp; sourceTree = "<group>"; };
 		309BD82B1D2E912800403107 /* Stage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Stage.hpp; sourceTree = "<group>"; };
 		309BD82D1D2F7DCC00403107 /* stone */ = {isa = PBXFileReference; lastKnownFileType = folder; path = stone; sourceTree = "<group>"; };
@@ -324,6 +327,8 @@
 				309BD82B1D2E912800403107 /* Stage.hpp */,
 				30C3C68E1D2FF5250066C813 /* Stone.cpp */,
 				30C3C68F1D2FF5250066C813 /* Stone.hpp */,
+				30731E351D48E3220048996A /* CurlingSprite.cpp */,
+				30731E361D48E3220048996A /* CurlingSprite.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -526,6 +531,7 @@
 				30AC13871D252C9500486F69 /* GameScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				309BD82C1D2E912800403107 /* Stage.cpp in Sources */,
+				30731E371D48E3220048996A /* CurlingSprite.cpp in Sources */,
 				302694DA1D21405A00185D38 /* TitleScene.cpp in Sources */,
 				30C3C6901D2FF5250066C813 /* Stone.cpp in Sources */,
 			);
@@ -619,6 +625,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-Wno-deprecated-declarations",
+					"-Wno-inconsistent-missing-override",
+				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",

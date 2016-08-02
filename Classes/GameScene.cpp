@@ -11,20 +11,14 @@
 
 USING_NS_CC;
 
-///重力を表すベクトル
-const Vec2 ZERO_GRAVITY = Vec2(0,0);
-
 GameScene::GameScene()
-:_stage(nullptr)
-,_redstone(nullptr)
 {
     
 }
 
 GameScene::~GameScene()
 {
-    CC_SAFE_RELEASE_NULL(_stage);
-    CC_SAFE_RELEASE_NULL(_redstone);
+
 }
 
 Scene* GameScene::createScene()
@@ -34,13 +28,6 @@ Scene* GameScene::createScene()
     {
         Scene::createWithPhysics()
     };
-    
-    //物理空間を取り出す
-    auto world = scene->getPhysicsWorld();
-    
-    //重力を設定する(ゼログラビティ)
-    world->setGravity(ZERO_GRAVITY);
-    
     
     //レイヤーの作成
     Layer* layer
@@ -61,21 +48,59 @@ bool GameScene::init()
         return false;
     }
     
-    //画面の大きさを取り出す
-    auto winSize = Director::getInstance()->getWinSize();
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+    curlingStage = new CurlingSprite("curling_coat.png");
+    curlingStage->setPosition(Vec2(visibleSize.width/2 + origin.x, 2048));
+    this->addChild(curlingStage);
     
-    //Stage.cppを呼び出しステージを作成する
-    auto stage = Stage::create();
-    this->addChild(stage);
-    this->setStage(stage);
+    curlingStone = new Stone("stone_red.png");
+    curlingStone->setPosition(Vec2(visibleSize.width/2 + origin.x,200.0f));
+    curlingStage->addChild(curlingStone);
     
-    //Stone.cppを呼び出しストーンを作成する
-    auto redstone = Stone::create();
-    this->addChild(redstone);
-    this->setRedstone(redstone);
+    //タッチ関係
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->onTouchBegan = CC_CALLBACK_2(GameScene::onTouchBegan, this);
+    listener->onTouchMoved = CC_CALLBACK_2(GameScene::onTouchMoved, this);
+    listener->onTouchEnded = CC_CALLBACK_2(GameScene::onTouchEnded, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
     
     this->scheduleUpdate();
     
     return true;
 }
 
+//タッチ処理を開始するためのもの
+bool GameScene::onTouchBegan(Touch* pTouch, Event* pEvent)
+{
+    Vec2 pos = pTouch->getLocation();
+    
+    if(curlingStone->isTouchPoint(pos))
+    {
+        curlingStone->setTouchPoint(pos);
+        log("Touched on Stone");
+    }
+    else if(curlingStage->isTouchPoint(pos))
+    {
+        curlingStage->setTouchPoint(pos);
+        log("Touched on Stage");
+    }
+    
+    return true;
+}
+
+//タッチを移動（ドラッグ）する時
+void GameScene::onTouchMoved(Touch* pTouch, Event* pEvent)
+{
+    Vec2 pos = pTouch->getLocation();
+    curlingStone->setPositionWithTouchPoint(pos);
+    curlingStage->setPositionWithTouchPoint(pos);
+}
+
+//タッチの終了
+void GameScene::onTouchEnded(Touch* pTouch, Event* pEvent)
+{
+    curlingStone->clearTouchPoint();
+    curlingStage->clearTouchPoint();
+}
