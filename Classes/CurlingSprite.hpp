@@ -6,6 +6,12 @@
 //
 //
 
+/** 仕様書
+ *  CurlingGameに登場するスプライトに実装される基本のクラスを実装する
+ *  StoneクラスとStageクラスに継承させる
+ *  このクラスの関数では主にスプライトをタッチした時などに座標を操作する作業が含まれている
+ */
+
 #ifndef CurlingSprite_hpp
 #define CurlingSprite_hpp
 
@@ -16,7 +22,7 @@ class CurlingSprite : public cocos2d::Sprite
 {
 public:
     
-    /** 渡されたファイル名のスプライトを作成する
+    /** コンストラクタ
      *@param filename ファイル名
      */
     CurlingSprite(const std::string& filename);

@@ -20,6 +20,7 @@
 		30AC13871D252C9500486F69 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30AC13851D252C9500486F69 /* GameScene.cpp */; };
 		30B06CAC1D2D1A4B0016B61A /* map in Resources */ = {isa = PBXBuildFile; fileRef = 30B06CAB1D2D1A4B0016B61A /* map */; };
 		30C3C6901D2FF5250066C813 /* Stone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30C3C68E1D2FF5250066C813 /* Stone.cpp */; };
+		30C4C4661D50E9C5001CC045 /* StoneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30C4C4641D50E9C5001CC045 /* StoneManager.cpp */; };
 		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		3EACC99019EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7619C43A67006E1F66 /* CloseNormal.png */; };
@@ -128,6 +129,8 @@
 		30B06CAB1D2D1A4B0016B61A /* map */ = {isa = PBXFileReference; lastKnownFileType = folder; path = map; sourceTree = "<group>"; };
 		30C3C68E1D2FF5250066C813 /* Stone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stone.cpp; sourceTree = "<group>"; };
 		30C3C68F1D2FF5250066C813 /* Stone.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Stone.hpp; sourceTree = "<group>"; };
+		30C4C4641D50E9C5001CC045 /* StoneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoneManager.cpp; sourceTree = "<group>"; };
+		30C4C4651D50E9C5001CC045 /* StoneManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StoneManager.hpp; sourceTree = "<group>"; };
 		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		46880B7619C43A67006E1F66 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
 		46880B7719C43A67006E1F66 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
@@ -327,6 +330,8 @@
 				309BD82B1D2E912800403107 /* Stage.hpp */,
 				30C3C68E1D2FF5250066C813 /* Stone.cpp */,
 				30C3C68F1D2FF5250066C813 /* Stone.hpp */,
+				30C4C4641D50E9C5001CC045 /* StoneManager.cpp */,
+				30C4C4651D50E9C5001CC045 /* StoneManager.hpp */,
 				30731E351D48E3220048996A /* CurlingSprite.cpp */,
 				30731E361D48E3220048996A /* CurlingSprite.hpp */,
 			);
@@ -526,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				30C4C4661D50E9C5001CC045 /* StoneManager.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				30AC13871D252C9500486F69 /* GameScene.cpp in Sources */,
