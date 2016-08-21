@@ -56,39 +56,6 @@ void Stone::setTouchPoint(Vec2 point)
     StoneSprite::setTouchPoint(point);
 }
 
-//タッチ座標を初期化　現在は弾き処理も含めている
-void Stone::clearTouchPoint(void)
-{
-    // 弾き処理（簡易版）
-    // は削除(速度追加する形式に変更するよ)
-    /*
-    if(isTouched()) {
-        if (dragPoint.x == 0.0f && dragPoint.y == 0.0f){
-            touchPoint.x = 0.0f;
-            touchPoint.y = 0.0f;
-        }
-        Vec2 vDirc(dragPoint.x - touchPoint.x, dragPoint.y - touchPoint.y);
-        setPosition(getPosition().x - vDirc.x, getPosition().y - vDirc.y);
-    }
-    */
-    
-    // 引っ張った距離に係数(CURLING_APPLY_VELOCITY_RATE)をかけて速度に設定
-    if(isTouched())
-    {
-        Vec2 velocity(touchPoint.x - dragPoint.x, touchPoint.y - dragPoint.y);
-        velocity.scale(CURLING_APPLY_VELOCITY_RATE);
-        getPhysicsBody()->setVelocity(velocity);
-    }
-    
-    // 初期化
-    touchPoint.set(0.0f, 0.0f);
-    dragPoint.set(0.0f, 0.0f);
-    pDrawNode->clear();
-    
-    // 基底の処理
-    StoneSprite::clearTouchPoint();
-}
-
 //タッチ座標をそれぞれのローカル座標に変更する　現在はドラッグした距離に応じて三角形を表示する
 void Stone::setPositionWithTouchPoint(Vec2 point)
 {
@@ -110,6 +77,39 @@ void Stone::setPositionWithTouchPoint(Vec2 point)
     
     // 基底の処理
     StoneSprite::setPositionWithTouchPoint(point);
+}
+
+//タッチ座標を初期化　現在は弾き処理も含めている
+void Stone::clearTouchPoint(void)
+{
+    // 弾き処理（簡易版）
+    // は削除(速度追加する形式に変更するよ)
+    /*
+     if(isTouched()) {
+     if (dragPoint.x == 0.0f && dragPoint.y == 0.0f){
+     touchPoint.x = 0.0f;
+     touchPoint.y = 0.0f;
+     }
+     Vec2 vDirc(dragPoint.x - touchPoint.x, dragPoint.y - touchPoint.y);
+     setPosition(getPosition().x - vDirc.x, getPosition().y - vDirc.y);
+     }
+     */
+    
+    // 引っ張った距離に係数(CURLING_APPLY_VELOCITY_RATE)をかけて速度に設定
+    if(isTouched())
+    {
+        Vec2 velocity(touchPoint.x - dragPoint.x, touchPoint.y - dragPoint.y);
+        velocity.scale(CURLING_APPLY_VELOCITY_RATE);
+        getPhysicsBody()->setVelocity(velocity);
+    }
+    
+    // 初期化
+    touchPoint.set(0.0f, 0.0f);
+    dragPoint.set(0.0f, 0.0f);
+    pDrawNode->clear();
+    
+    // 基底の処理
+    StoneSprite::clearTouchPoint();
 }
 
 void Stone::registVelocity(float)

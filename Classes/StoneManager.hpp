@@ -68,7 +68,7 @@ public:
     Stone* getUnitById(int id);
     
 protected:
-    // 構造体による駒管理データ
+    // 構造体によるストーン管理データ
     struct CurlingStoneBox {
         int nId;
         Stone* pStoneUnit;

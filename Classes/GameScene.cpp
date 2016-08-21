@@ -70,7 +70,7 @@ bool GameScene::init()
     
     // インスタンス生成
     StoneManager::createInstance();
-    // 駒の登録（仮にIDを1でひとつ登録）
+    // ストーンの登録（仮にIDを1でひとつ登録）
     Stone* unit = CUR_STONE_MNG.createUnit(1, "stone_red.png");
     curlingStage->addChild(unit);
      
