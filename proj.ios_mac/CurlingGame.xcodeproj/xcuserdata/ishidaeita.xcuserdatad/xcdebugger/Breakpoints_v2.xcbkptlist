@@ -6,15 +6,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Classes/AppDelegate.h"
-            timestampString = "489578513.505342"
+            filePath = "../Classes/StoneManager.hpp"
+            timestampString = "492089146.035122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12">
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "class StoneManager"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -23,33 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Classes/GameScene.cpp"
-            timestampString = "490690828.872148"
+            filePath = "../Classes/StoneManager.cpp"
+            timestampString = "491896413.060189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-<<<<<<< HEAD
-            landmarkName = "GameScene::init()"
-=======
-            landmarkName = "GameScene::onTouchBegan(Touch* pTouch, Event* pEvent)"
->>>>>>> pullstone
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/GameScene.cpp"
-            timestampString = "490690828.872148"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "GameScene::init()"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "StoneManager::~StoneManager()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

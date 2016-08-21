@@ -12,14 +12,16 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		301BCDE81D62A96D00273737 /* StageSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 301BCDE61D62A96D00273737 /* StageSprite.cpp */; };
 		302694DA1D21405A00185D38 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 302694D81D21405A00185D38 /* TitleScene.cpp */; };
 		302694DC1D2265CD00185D38 /* title in Resources */ = {isa = PBXBuildFile; fileRef = 302694DB1D2265CD00185D38 /* title */; };
-		30731E371D48E3220048996A /* CurlingSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30731E351D48E3220048996A /* CurlingSprite.cpp */; };
+		30731E371D48E3220048996A /* StoneSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30731E351D48E3220048996A /* StoneSprite.cpp */; };
 		309BD82C1D2E912800403107 /* Stage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 309BD82A1D2E912800403107 /* Stage.cpp */; };
 		309BD82E1D2F7DCC00403107 /* stone in Resources */ = {isa = PBXBuildFile; fileRef = 309BD82D1D2F7DCC00403107 /* stone */; };
 		30AC13871D252C9500486F69 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30AC13851D252C9500486F69 /* GameScene.cpp */; };
 		30B06CAC1D2D1A4B0016B61A /* map in Resources */ = {isa = PBXBuildFile; fileRef = 30B06CAB1D2D1A4B0016B61A /* map */; };
 		30C3C6901D2FF5250066C813 /* Stone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30C3C68E1D2FF5250066C813 /* Stone.cpp */; };
+		30C4C4661D50E9C5001CC045 /* StoneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30C4C4641D50E9C5001CC045 /* StoneManager.cpp */; };
 		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		3EACC99019EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7619C43A67006E1F66 /* CloseNormal.png */; };
@@ -115,11 +117,13 @@
 		1D6058910D05DD3D006BFB54 /* CurlingGame-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CurlingGame-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		301BCDE61D62A96D00273737 /* StageSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StageSprite.cpp; sourceTree = "<group>"; };
+		301BCDE71D62A96D00273737 /* StageSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StageSprite.hpp; sourceTree = "<group>"; };
 		302694D81D21405A00185D38 /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
 		302694D91D21405A00185D38 /* TitleScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TitleScene.hpp; sourceTree = "<group>"; };
 		302694DB1D2265CD00185D38 /* title */ = {isa = PBXFileReference; lastKnownFileType = folder; path = title; sourceTree = "<group>"; };
-		30731E351D48E3220048996A /* CurlingSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CurlingSprite.cpp; sourceTree = "<group>"; };
-		30731E361D48E3220048996A /* CurlingSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CurlingSprite.hpp; sourceTree = "<group>"; };
+		30731E351D48E3220048996A /* StoneSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoneSprite.cpp; sourceTree = "<group>"; };
+		30731E361D48E3220048996A /* StoneSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StoneSprite.hpp; sourceTree = "<group>"; };
 		309BD82A1D2E912800403107 /* Stage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stage.cpp; sourceTree = "<group>"; };
 		309BD82B1D2E912800403107 /* Stage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Stage.hpp; sourceTree = "<group>"; };
 		309BD82D1D2F7DCC00403107 /* stone */ = {isa = PBXFileReference; lastKnownFileType = folder; path = stone; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 		30B06CAB1D2D1A4B0016B61A /* map */ = {isa = PBXFileReference; lastKnownFileType = folder; path = map; sourceTree = "<group>"; };
 		30C3C68E1D2FF5250066C813 /* Stone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stone.cpp; sourceTree = "<group>"; };
 		30C3C68F1D2FF5250066C813 /* Stone.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Stone.hpp; sourceTree = "<group>"; };
+		30C4C4641D50E9C5001CC045 /* StoneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoneManager.cpp; sourceTree = "<group>"; };
+		30C4C4651D50E9C5001CC045 /* StoneManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StoneManager.hpp; sourceTree = "<group>"; };
 		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		46880B7619C43A67006E1F66 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
 		46880B7719C43A67006E1F66 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
@@ -325,10 +331,14 @@
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				309BD82A1D2E912800403107 /* Stage.cpp */,
 				309BD82B1D2E912800403107 /* Stage.hpp */,
+				301BCDE61D62A96D00273737 /* StageSprite.cpp */,
+				301BCDE71D62A96D00273737 /* StageSprite.hpp */,
+				30C4C4641D50E9C5001CC045 /* StoneManager.cpp */,
+				30C4C4651D50E9C5001CC045 /* StoneManager.hpp */,
 				30C3C68E1D2FF5250066C813 /* Stone.cpp */,
 				30C3C68F1D2FF5250066C813 /* Stone.hpp */,
-				30731E351D48E3220048996A /* CurlingSprite.cpp */,
-				30731E361D48E3220048996A /* CurlingSprite.hpp */,
+				30731E351D48E3220048996A /* StoneSprite.cpp */,
+				30731E361D48E3220048996A /* StoneSprite.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -526,12 +536,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				30C4C4661D50E9C5001CC045 /* StoneManager.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				30AC13871D252C9500486F69 /* GameScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				309BD82C1D2E912800403107 /* Stage.cpp in Sources */,
-				30731E371D48E3220048996A /* CurlingSprite.cpp in Sources */,
+				30731E371D48E3220048996A /* StoneSprite.cpp in Sources */,
+				301BCDE81D62A96D00273737 /* StageSprite.cpp in Sources */,
 				302694DA1D21405A00185D38 /* TitleScene.cpp in Sources */,
 				30C3C6901D2FF5250066C813 /* Stone.cpp in Sources */,
 			);

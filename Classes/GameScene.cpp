@@ -36,6 +36,12 @@ Scene* GameScene::createScene()
     };
     scene->addChild(layer);
     
+    // 重力を無効化
+    PhysicsWorld* phyWorld = scene->getPhysicsWorld();
+    Vect gravity;
+    gravity.setPoint(0, 0);
+    phyWorld->setGravity(gravity);
+    
     return scene;
 }
 
@@ -51,14 +57,23 @@ bool GameScene::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    curlingStage = new CurlingSprite("curling_coat.png");
+    curlingStage = new StoneSprite("curling_coat.png");
     curlingStage->setPosition(Vec2(visibleSize.width/2 + origin.x, 2048));
     this->addChild(curlingStage);
     
+    //Stone.hppを消したため削除
+    /*
     curlingStone = new Stone("stone_red.png");
     curlingStone->setPosition(Vec2(visibleSize.width/2 + origin.x,200.0f));
     curlingStage->addChild(curlingStone);
+    */
     
+    // インスタンス生成
+    StoneManager::createInstance();
+    // ストーンの登録（仮にIDを1でひとつ登録）
+    Stone* unit = CUR_STONE_MNG.createUnit(1, "stone_red.png");
+    curlingStage->addChild(unit);
+     
     //タッチ関係
     auto listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = CC_CALLBACK_2(GameScene::onTouchBegan, this);
@@ -76,6 +91,8 @@ bool GameScene::onTouchBegan(Touch* pTouch, Event* pEvent)
 {
     Vec2 pos = pTouch->getLocation();
     
+    //処理の変更のため削除
+    /*
     if(curlingStone->isTouchPoint(pos))
     {
         curlingStone->setTouchPoint(pos);
@@ -86,6 +103,39 @@ bool GameScene::onTouchBegan(Touch* pTouch, Event* pEvent)
         curlingStage->setTouchPoint(pos);
         log("Touched on Stage");
     }
+    */
+    
+    bool isTouch = false;
+    //ストーン管理クラスに登録されている、すべての駒で判定（最初に見つかった駒に対して処理する）
+    for (int idx=0; idx < CUR_STONE_MNG.getUnitNum(); ++idx){
+        Stone* unit = CUR_STONE_MNG.getUnitByIdx(idx);
+        if (unit){
+            if (unit->isTouchPoint(pos))
+            {
+                unit->setTouchPoint(pos);
+                isTouch = true;
+                log("Touched on Stone");
+                break;
+            }
+        }
+    }
+    //ストーンをタッチしていなかった場合はステージの処理を行う
+    if (isTouch == false){
+        if (curlingStage->isTouchPoint(pos))
+        {
+            curlingStage->setTouchPoint(pos);
+            isTouch = true;
+            log("Touched on Stage");
+        }
+    }
+    
+    //仮実装
+    //ストーンもステージもタッチしていなかった場合はストーンを追加する
+    if(isTouch == false) {
+        // 駒の登録（仮にIDを1でひとつ登録）
+        Stone* unit = CUR_STONE_MNG.createUnit(1, "stone_red.png");
+        curlingStage->addChild(unit);
+    }
     
     return true;
 }
@@ -94,13 +144,35 @@ bool GameScene::onTouchBegan(Touch* pTouch, Event* pEvent)
 void GameScene::onTouchMoved(Touch* pTouch, Event* pEvent)
 {
     Vec2 pos = pTouch->getLocation();
-    curlingStone->setPositionWithTouchPoint(pos);
+    //Stone.hppを消したため削除
+    //curlingStone->setPositionWithTouchPoint(pos);
+    
+    //仮実装
+    //ストーン管理クラスに登録されている、すべての駒で判定
+    for(int idx=0; idx<CUR_STONE_MNG.getUnitNum(); ++idx) {
+        Stone* unit = CUR_STONE_MNG.getUnitByIdx(idx);
+        if(unit) {
+            unit->setPositionWithTouchPoint(pos);
+        }
+    }
+    
     curlingStage->setPositionWithTouchPoint(pos);
 }
 
 //タッチの終了
 void GameScene::onTouchEnded(Touch* pTouch, Event* pEvent)
 {
-    curlingStone->clearTouchPoint();
+    //Stone.hppを消したため削除
+    //curlingStone->clearTouchPoint();
+    
+    //仮実装
+    //ストーン管理クラスに登録されている、すべての駒で判定
+    for(int idx=0; idx<CUR_STONE_MNG.getUnitNum(); ++idx) {
+        Stone* unit = CUR_STONE_MNG.getUnitByIdx(idx);
+        if(unit) {
+            unit->clearTouchPoint();
+        }
+    }
+    
     curlingStage->clearTouchPoint();
 }

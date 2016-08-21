@@ -11,7 +11,9 @@
 
 #include "cocos2d.h"
 #include "Stage.hpp"
-#include "Stone.hpp"
+//StoneManager.cppでStoneの管理をするため削除
+//#include "Stone.hpp"
+#include "StoneManager.hpp"
 #include "ui/cocosGUI.h"
 
 class GameScene:public cocos2d::Layer
@@ -56,8 +58,9 @@ protected:
     GameScene();
     virtual ~GameScene();
     
-    CurlingSprite*  curlingStage;
-    CurlingSprite*  curlingStone;
+    StoneSprite*  curlingStage;
+    //この行を削除
+    //Stone*  curlingStone;
     
 };
 

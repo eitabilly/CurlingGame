@@ -5,14 +5,18 @@
 //  Created by 石田栄太 on 2016/07/08.
 //
 //
+/** 仕様書
+ *  このクラスは、CurlingGameで使用するストーンを動かすクラスである
+ *  ストーンの作成は全てStoneManagerを継承したクラスにて行う
+ */
 
 #ifndef Stone_hpp
 #define Stone_hpp
 
 #include "cocos2d.h"
-#include "CurlingSprite.hpp"
+#include "StoneSprite.hpp"
 
-class Stone : public CurlingSprite
+class Stone : public StoneSprite
 {
 public:
     //コンストラクタ
@@ -37,6 +41,13 @@ public:
      *@return void
      */
     virtual void setPositionWithTouchPoint(cocos2d::Vec2);
+    
+    
+    /** 速度減衰処理
+     *  調整として段階的に速度を減らしていく処理を実装している
+     *  @param  float   
+     */
+    void registVelocity(float);
     
 protected:
     // ドラッグ描画用
