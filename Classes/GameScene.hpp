@@ -58,7 +58,7 @@ protected:
     GameScene();
     virtual ~GameScene();
     
-    CurlingSprite*  curlingStage;
+    StoneSprite*  curlingStage;
     //この行を削除
     //Stone*  curlingStone;
     

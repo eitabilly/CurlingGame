@@ -10,20 +10,13 @@
 #define Stage_hpp
 
 #include "cocos2d.h"
-#include "Stone.hpp"
-#include "CurlingSprite.hpp"
+#include "StageSprite.hpp"
 
 class Stage : public cocos2d::Layer
 {
-protected:
-    Stage();
-    virtual ~Stage();
-    bool init() override;
-    
 public:
-    void update(float dt) override;
-
-    CREATE_FUNC(Stage);
+    //コンストラクタ
+    Stage(const std::string& filename);
     
 };
 

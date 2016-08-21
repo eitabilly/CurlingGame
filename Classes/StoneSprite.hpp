@@ -1,5 +1,5 @@
 //
-//  CurlingSprite.hpp
+//  StoneSprite.hpp
 //  CurlingGame
 //
 //  Created by 石田栄太 on 2016/07/27.
@@ -12,20 +12,20 @@
  *  このクラスの関数では主にスプライトをタッチした時などに座標を操作する作業が含まれている
  */
 
-#ifndef CurlingSprite_hpp
-#define CurlingSprite_hpp
+#ifndef StoneSprite_hpp
+#define StoneSprite_hpp
 
 #include <stdio.h>
 #include "cocos2d.h"
 
-class CurlingSprite : public cocos2d::Sprite
+class StoneSprite : public cocos2d::Sprite
 {
 public:
     
     /** コンストラクタ
      *@param filename ファイル名
      */
-    CurlingSprite(const std::string& filename);
+    StoneSprite(const std::string& filename);
     
     // タッチ判定関連
     
@@ -97,4 +97,4 @@ protected:
     bool bEnableTouchMove;
 };
 
-#endif /* CurlingSprite_hpp */
+#endif /* StoneSprite_hpp */

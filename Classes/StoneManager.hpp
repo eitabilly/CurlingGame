@@ -78,7 +78,7 @@ protected:
         }
     };
     
-    // 駒リスト
+    // リスト
     std::list<CurlingStoneBox> lstStoneUnitBox;
 
 };

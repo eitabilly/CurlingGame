@@ -16,7 +16,7 @@ USING_NS_CC;
 #define CURLING_END_VELOCITY_RATE   2.0f   //終わり速度減衰係数
 
 Stone::Stone(const std::string& filename)
-:CurlingSprite(filename)
+:StoneSprite(filename)
 {
     pDrawNode = DrawNode::create();
     addChild(pDrawNode);
@@ -27,12 +27,13 @@ Stone::Stone(const std::string& filename)
     phyMat.density		= 1.0f; // 密度
     phyMat.restitution	= 0.7f; // 反発係数
     phyMat.friction		= 1.0f; // 摩擦係数
-    // 駒の形状と同じ円で作成
+    // ストーンの形状と同じ円で作成
     PhysicsBody* phyBody = cocos2d::PhysicsBody::createCircle( getContentSize().width/2, phyMat );
     phyBody->setMass(1.0f); // 質量
     phyBody->setCategoryBitmask( 1 ); // カテゴリー
     phyBody->setCollisionBitmask( 1 ); // 衝突判定するカテゴリー
     phyBody->setDynamic(true); // 重力の影響を有効化
+    phyBody->setRotationEnable(true); // 剛体の回転を有効化
     setPhysicsBody( phyBody );
     
     // 速度減衰処理を独自実装
@@ -52,7 +53,7 @@ void Stone::setTouchPoint(Vec2 point)
     touchPoint.y += h/2.0f;
     
     // 基底の処理
-    CurlingSprite::setTouchPoint(point);
+    StoneSprite::setTouchPoint(point);
 }
 
 //タッチ座標を初期化　現在は弾き処理も含めている
@@ -85,7 +86,7 @@ void Stone::clearTouchPoint(void)
     pDrawNode->clear();
     
     // 基底の処理
-    CurlingSprite::clearTouchPoint();
+    StoneSprite::clearTouchPoint();
 }
 
 //タッチ座標をそれぞれのローカル座標に変更する　現在はドラッグした距離に応じて三角形を表示する
@@ -108,7 +109,7 @@ void Stone::setPositionWithTouchPoint(Vec2 point)
     }
     
     // 基底の処理
-    CurlingSprite::setPositionWithTouchPoint(point);
+    StoneSprite::setPositionWithTouchPoint(point);
 }
 
 void Stone::registVelocity(float)

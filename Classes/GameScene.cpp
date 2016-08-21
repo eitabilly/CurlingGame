@@ -57,7 +57,7 @@ bool GameScene::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    curlingStage = new CurlingSprite("curling_coat.png");
+    curlingStage = new StoneSprite("curling_coat.png");
     curlingStage->setPosition(Vec2(visibleSize.width/2 + origin.x, 2048));
     this->addChild(curlingStage);
     
