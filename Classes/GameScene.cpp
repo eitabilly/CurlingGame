@@ -106,8 +106,8 @@ bool GameScene::onTouchBegan(Touch* pTouch, Event* pEvent)
     */
     
     bool isTouch = false;
-    //ストーン管理クラスに登録されている、すべての駒で判定（最初に見つかった駒に対して処理する）
-    for (int idx=0; idx < CUR_STONE_MNG.getUnitNum(); ++idx){
+    //ストーン管理クラスに登録されている、一番新しいストーンで判定
+    int idx = CUR_STONE_MNG.getUnitNum() - 1;
         Stone* unit = CUR_STONE_MNG.getUnitByIdx(idx);
         if (unit){
             if (unit->isTouchPoint(pos))
@@ -115,10 +115,8 @@ bool GameScene::onTouchBegan(Touch* pTouch, Event* pEvent)
                 unit->setTouchPoint(pos);
                 isTouch = true;
                 log("Touched on Stone");
-                break;
             }
         }
-    }
     //ストーンをタッチしていなかった場合はステージの処理を行う
     if (isTouch == false){
         if (curlingStage->isTouchPoint(pos))
@@ -132,7 +130,7 @@ bool GameScene::onTouchBegan(Touch* pTouch, Event* pEvent)
     //仮実装
     //ストーンもステージもタッチしていなかった場合はストーンを追加する
     if(isTouch == false) {
-        // 駒の登録（仮にIDを1でひとつ登録）
+        // ストーンの登録（仮にIDを1でひとつ登録）
         Stone* unit = CUR_STONE_MNG.createUnit(1, "stone_red.png");
         curlingStage->addChild(unit);
     }
@@ -148,7 +146,7 @@ void GameScene::onTouchMoved(Touch* pTouch, Event* pEvent)
     //curlingStone->setPositionWithTouchPoint(pos);
     
     //仮実装
-    //ストーン管理クラスに登録されている、すべての駒で判定
+    //ストーン管理クラスに登録されている、すべてのストーンで判定
     for(int idx=0; idx<CUR_STONE_MNG.getUnitNum(); ++idx) {
         Stone* unit = CUR_STONE_MNG.getUnitByIdx(idx);
         if(unit) {
@@ -166,7 +164,7 @@ void GameScene::onTouchEnded(Touch* pTouch, Event* pEvent)
     //curlingStone->clearTouchPoint();
     
     //仮実装
-    //ストーン管理クラスに登録されている、すべての駒で判定
+    //ストーン管理クラスに登録されている、すべてのストーンで判定
     for(int idx=0; idx<CUR_STONE_MNG.getUnitNum(); ++idx) {
         Stone* unit = CUR_STONE_MNG.getUnitByIdx(idx);
         if(unit) {

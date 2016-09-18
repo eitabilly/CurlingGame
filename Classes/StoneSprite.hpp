@@ -87,13 +87,11 @@ protected:
 protected:
     
     // タッチ判定関連
-    
     bool bTouched;
     cocos2d::Vec2 ofstTouchPoint;
     
     
     // タッチ移動有効フラグ
-    
     bool bEnableTouchMove;
 };
 

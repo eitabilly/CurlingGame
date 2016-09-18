@@ -15,6 +15,7 @@
 //#include "Stone.hpp"
 #include "StoneManager.hpp"
 #include "ui/cocosGUI.h"
+#include "TitleScene.hpp"
 
 class GameScene:public cocos2d::Layer
 {

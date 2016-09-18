@@ -98,6 +98,10 @@ void Stone::clearTouchPoint(void)
     // 引っ張った距離に係数(CURLING_APPLY_VELOCITY_RATE)をかけて速度に設定
     if(isTouched())
     {
+        if (dragPoint.x == 0.0f && dragPoint.y == 0.0f){
+            touchPoint.x = 0.0f;
+            touchPoint.y = 0.0f;
+        }
         Vec2 velocity(touchPoint.x - dragPoint.x, touchPoint.y - dragPoint.y);
         velocity.scale(CURLING_APPLY_VELOCITY_RATE);
         getPhysicsBody()->setVelocity(velocity);

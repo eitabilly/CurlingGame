@@ -75,5 +75,3 @@ void StoneSprite::setEnableTouchMove(bool enable) {
 bool StoneSprite::isEnableTouchMove(void) const {
     return bEnableTouchMove;
 }
-
-
