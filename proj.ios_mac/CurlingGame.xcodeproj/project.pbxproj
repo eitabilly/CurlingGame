@@ -329,16 +329,16 @@
 				30AC13861D252C9500486F69 /* GameScene.hpp */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
-				309BD82A1D2E912800403107 /* Stage.cpp */,
-				309BD82B1D2E912800403107 /* Stage.hpp */,
 				301BCDE61D62A96D00273737 /* StageSprite.cpp */,
 				301BCDE71D62A96D00273737 /* StageSprite.hpp */,
+				309BD82A1D2E912800403107 /* Stage.cpp */,
+				309BD82B1D2E912800403107 /* Stage.hpp */,
 				30C4C4641D50E9C5001CC045 /* StoneManager.cpp */,
 				30C4C4651D50E9C5001CC045 /* StoneManager.hpp */,
-				30C3C68E1D2FF5250066C813 /* Stone.cpp */,
-				30C3C68F1D2FF5250066C813 /* Stone.hpp */,
 				30731E351D48E3220048996A /* StoneSprite.cpp */,
 				30731E361D48E3220048996A /* StoneSprite.hpp */,
+				30C3C68E1D2FF5250066C813 /* Stone.cpp */,
+				30C3C68F1D2FF5250066C813 /* Stone.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;

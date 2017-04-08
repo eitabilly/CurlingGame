@@ -30,7 +30,7 @@
             startingLineNumber = "37"
             endingLineNumber = "37"
             landmarkName = "StoneManager::~StoneManager()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -46,7 +46,7 @@
             startingLineNumber = "61"
             endingLineNumber = "61"
             landmarkName = "StoneManager::getUnitNum(void)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,7 +62,7 @@
             startingLineNumber = "84"
             endingLineNumber = "84"
             landmarkName = "GameScene::init()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

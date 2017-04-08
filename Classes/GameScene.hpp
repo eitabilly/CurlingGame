@@ -14,7 +14,7 @@
 //StoneManager.cppでStoneの管理をするため削除
 //#include "Stone.hpp"
 #include "StoneManager.hpp"
-#include "ui/cocosGUI.h"
+#include "ui/CocosGUI.h"
 #include "TitleScene.hpp"
 
 class GameScene:public cocos2d::Layer

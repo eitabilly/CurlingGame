@@ -10,7 +10,7 @@
 #define TitleScene_hpp
 
 #include "cocos2d.h"
-#include "ui/cocosGUI.h"
+#include "ui/CocosGUI.h"
 
 class TitleScene:public cocos2d::Layer
 {

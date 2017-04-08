@@ -57,8 +57,8 @@ bool GameScene::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    curlingStage = new StoneSprite("curling_coat.png");
-    curlingStage->setPosition(Vec2(visibleSize.width/2 + origin.x, 2048));
+    curlingStage = new StoneSprite("curling_coat1136.png");
+    curlingStage->setPosition(Vec2(visibleSize.width/2 + origin.x, 563));
     this->addChild(curlingStage);
     
     //Stone.hppを消したため削除
@@ -121,7 +121,7 @@ bool GameScene::onTouchBegan(Touch* pTouch, Event* pEvent)
     if (isTouch == false){
         if (curlingStage->isTouchPoint(pos))
         {
-            curlingStage->setTouchPoint(pos);
+            //curlingStage->setTouchPoint(pos);
             isTouch = true;
             log("Touched on Stage");
         }
@@ -148,9 +148,11 @@ void GameScene::onTouchMoved(Touch* pTouch, Event* pEvent)
     //仮実装
     //ストーン管理クラスに登録されている、すべてのストーンで判定
     for(int idx=0; idx<CUR_STONE_MNG.getUnitNum(); ++idx) {
-        Stone* unit = CUR_STONE_MNG.getUnitByIdx(idx);
-        if(unit) {
-            unit->setPositionWithTouchPoint(pos);
+        if (idx == CUR_STONE_MNG.getUnitNum()-1){
+            Stone* unit = CUR_STONE_MNG.getUnitByIdx(idx);
+            if(unit) {
+                unit->setPositionWithTouchPoint(pos);
+            }
         }
     }
     

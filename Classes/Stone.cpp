@@ -12,11 +12,11 @@ USING_NS_CC;
 
 #define CURLING_APPLY_VELOCITY_RATE 4.0f    //引っ張り係数
 #define CURLING_REG_VELOCITY_RATE   0.004f	//通常速度減衰係数
-#define CURLING_ENDING_VELOCITY_RATE    1.0f    //終わり頃速度減衰係数
-#define CURLING_END_VELOCITY_RATE   2.0f   //終わり速度減衰係数
 
 Stone::Stone(const std::string& filename)
 :StoneSprite(filename)
+,velocon(false)
+,velocoff(false)
 {
     pDrawNode = DrawNode::create();
     addChild(pDrawNode);
@@ -124,17 +124,22 @@ void Stone::registVelocity(float)
         if(tmp.length() < 1.0f) {
             getPhysicsBody()->setVelocity(Vec2(0.0f, 0.0f));
         }
-        else if(tmp.length() < 10.0f) {
-            tmp.scale(CURLING_END_VELOCITY_RATE);
-            getPhysicsBody()->setVelocity(getPhysicsBody()->getVelocity()-tmp);
-        }
-        else if(tmp.length() < 50.0f) {
-            tmp.scale(CURLING_ENDING_VELOCITY_RATE);
-            getPhysicsBody()->setVelocity(getPhysicsBody()->getVelocity()-tmp);
-        }
         else {
             tmp.scale(CURLING_REG_VELOCITY_RATE);
             getPhysicsBody()->setVelocity(getPhysicsBody()->getVelocity()-tmp);
         }
     }
+}
+
+bool Stone::boolStoneadd(void)
+{
+    Vec2 tmp(getPhysicsBody()->getVelocity());
+    if (tmp.length() > 0.0f){
+        velocon = true;
+    }
+    if (velocon)
+    {
+        velocoff = true;
+    }
+    return velocoff;
 }

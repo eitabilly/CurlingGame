@@ -58,7 +58,7 @@ Stone* StoneManager::createUnit(int id, const std::string& filename)
 //ストーンの数
 int StoneManager::getUnitNum(void)
 {
-    return lstStoneUnitBox.size();
+    return (int)lstStoneUnitBox.size();
 }
 
 //ストーン取得（インデックス指定）

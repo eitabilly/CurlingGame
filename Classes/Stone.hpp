@@ -49,6 +49,8 @@ public:
      */
     void registVelocity(float);
     
+    bool boolStoneadd(void);
+    
 protected:
     // ドラッグ描画用
     cocos2d::DrawNode* pDrawNode;
@@ -58,6 +60,9 @@ protected:
     
     // ドラッグ座標
     cocos2d::Vec2 dragPoint;
+    
+    bool velocon;
+    bool velocoff;
     
 };
 
