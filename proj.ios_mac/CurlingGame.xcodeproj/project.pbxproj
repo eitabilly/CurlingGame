@@ -335,10 +335,10 @@
 				309BD82B1D2E912800403107 /* Stage.hpp */,
 				30C4C4641D50E9C5001CC045 /* StoneManager.cpp */,
 				30C4C4651D50E9C5001CC045 /* StoneManager.hpp */,
-				30731E351D48E3220048996A /* StoneSprite.cpp */,
-				30731E361D48E3220048996A /* StoneSprite.hpp */,
 				30C3C68E1D2FF5250066C813 /* Stone.cpp */,
 				30C3C68F1D2FF5250066C813 /* Stone.hpp */,
+				30731E351D48E3220048996A /* StoneSprite.cpp */,
+				30731E361D48E3220048996A /* StoneSprite.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;

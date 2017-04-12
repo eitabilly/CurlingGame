@@ -11,7 +11,8 @@
 USING_NS_CC;
 
 #define CURLING_APPLY_VELOCITY_RATE 4.0f    //引っ張り係数
-#define CURLING_REG_VELOCITY_RATE   0.004f	//通常速度減衰係数
+#define CURLING_REG_VELOCITY_RATE   0.01f	//通常速度減衰係数
+#define CURLING_WIDTH_VELOCITY_ADD  3   //タップ時に曲げる係数
 
 Stone::Stone(const std::string& filename)
 :StoneSprite(filename)
@@ -25,7 +26,7 @@ Stone::Stone(const std::string& filename)
     // 物理エンジン作成
     PhysicsMaterial phyMat = PHYSICSBODY_MATERIAL_DEFAULT;
     phyMat.density		= 1.0f; // 密度
-    phyMat.restitution	= 0.7f; // 反発係数
+    phyMat.restitution	= 1.05f; // 反発係数
     phyMat.friction		= 1.0f; // 摩擦係数
     // ストーンの形状と同じ円で作成
     PhysicsBody* phyBody = cocos2d::PhysicsBody::createCircle( getContentSize().width/2, phyMat );
@@ -36,14 +37,14 @@ Stone::Stone(const std::string& filename)
     phyBody->setRotationEnable(true); // 剛体の回転を有効化
     setPhysicsBody( phyBody );
     
-    // 速度減衰処理を独自実装
+    // 速度減衰処理
     schedule(schedule_selector(Stone::registVelocity));
 }
 
 //タッチした場所を返す
 void Stone::setTouchPoint(Vec2 point)
 {
-    // 弾き処理は自分のローカル座標で行うので基点は中心
+    // 投げ処理は自分のローカル座標で行うので基点は中心
     touchPoint.x = 0.0f;
     touchPoint.y = 0.0f;
     // スプライトの幅と高さ（アンカーではなく左下から中心までの距離のため必要）
@@ -79,10 +80,31 @@ void Stone::setPositionWithTouchPoint(Vec2 point)
     StoneSprite::setPositionWithTouchPoint(point);
 }
 
-//タッチ座標を初期化　現在は弾き処理も含めている
+//タッチ座標が中央より右であった場合，右側へ速度を，左だった場合は左側へ速度を持たせる
+//希望としてはタップ時間に応じて加速度的に曲げたい
+void Stone::setWidthVec(Vec2 point, int kai)
+{
+    if (point.x < getPosition().x){
+        if (getPhysicsBody()->getVelocity().y > (getPhysicsBody()->getVelocity().x - CURLING_WIDTH_VELOCITY_ADD) && getPhysicsBody()->getVelocity().y > 0-getPhysicsBody()->getVelocity().x){
+            Vec2 velocity(getPhysicsBody()->getVelocity().x - CURLING_WIDTH_VELOCITY_ADD, getPhysicsBody()->getVelocity().y - CURLING_WIDTH_VELOCITY_ADD);
+            getPhysicsBody()->setVelocity(velocity);
+        }
+        log("left");
+    }
+    else{
+        if (getPhysicsBody()->getVelocity().y > (getPhysicsBody()->getVelocity().x + CURLING_WIDTH_VELOCITY_ADD) && getPhysicsBody()->getVelocity().y > 0-getPhysicsBody()->getVelocity().x){
+            Vec2 velocity(getPhysicsBody()->getVelocity().x + CURLING_WIDTH_VELOCITY_ADD, getPhysicsBody()->getVelocity().y - CURLING_WIDTH_VELOCITY_ADD);
+            getPhysicsBody()->setVelocity(velocity);
+        }
+        log("right");
+    }
+}
+
+
+//タッチ座標を初期化　現在は投げ処理も含めている
 void Stone::clearTouchPoint(void)
 {
-    // 弾き処理（簡易版）
+    // 投げ処理（簡易版）
     // は削除(速度追加する形式に変更するよ)
     /*
      if(isTouched()) {
@@ -121,7 +143,7 @@ void Stone::registVelocity(float)
     if(0 < getPhysicsBody()->getVelocity().length()) {
         // 減衰処理
         Vec2 tmp(getPhysicsBody()->getVelocity());
-        if(tmp.length() < 1.0f) {
+        if(tmp.length() < 1.1f) {
             getPhysicsBody()->setVelocity(Vec2(0.0f, 0.0f));
         }
         else {
@@ -134,12 +156,9 @@ void Stone::registVelocity(float)
 bool Stone::boolStoneadd(void)
 {
     Vec2 tmp(getPhysicsBody()->getVelocity());
-    if (tmp.length() > 0.0f){
-        velocon = true;
-    }
-    if (velocon)
-    {
+    if (tmp.length() == 0.0f){
         velocoff = true;
     }
     return velocoff;
 }
+

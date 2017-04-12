@@ -63,6 +63,10 @@ protected:
     //この行を削除
     //Stone*  curlingStone;
     
+    bool firsttouch;
+    bool secondtouch;
+    int kai;
+    
 };
 
 

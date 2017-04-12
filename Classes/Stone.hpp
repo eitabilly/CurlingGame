@@ -30,6 +30,12 @@ public:
      */
     virtual void setTouchPoint(cocos2d::Vec2);
     
+    /** 引数の座標の位置が画像の中心から見て左右どちらにあるかに応じて左右に速度を加算する
+     *@param cocos2d::Vec2  タッチの起点座標
+     *@return void
+     */
+    virtual void setWidthVec(cocos2d::Vec2, int kai);
+    
     /** setTouchPointでタッチ状態にしたものを初期化することで解除する
      *@param void
      *@return void

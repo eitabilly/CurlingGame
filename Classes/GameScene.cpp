@@ -12,6 +12,9 @@
 USING_NS_CC;
 
 GameScene::GameScene()
+:firsttouch(false)
+,secondtouch(true)
+,kai(1)
 {
     
 }
@@ -112,28 +115,58 @@ bool GameScene::onTouchBegan(Touch* pTouch, Event* pEvent)
         if (unit){
             if (unit->isTouchPoint(pos))
             {
-                unit->setTouchPoint(pos);
-                isTouch = true;
-                log("Touched on Stone");
+                if (secondtouch){
+                    unit->setTouchPoint(pos);
+                    isTouch = true;
+                    firsttouch = true;
+                    secondtouch = false;
+                    log("Touched on Stone");
+                }
             }
         }
     //ストーンをタッチしていなかった場合はステージの処理を行う
+    //ステージの左右をタッチして，タッッチした数だけストーンの速度を左右に加算する
+    //現在はステージタッチ時は何も行わない
     if (isTouch == false){
         if (curlingStage->isTouchPoint(pos))
         {
-            //curlingStage->setTouchPoint(pos);
             isTouch = true;
-            log("Touched on Stage");
+            if (firsttouch == true)
+            {
+                //int idx = CUR_STONE_MNG.getUnitNum() - 1;
+                //Stone* unit = CUR_STONE_MNG.getUnitByIdx(idx);
+                if (unit)
+                {
+                    unit->setWidthVec(pos, kai);
+                    /*curlingStage->setTouchPoint(pos);
+                     isTouch = true;*/
+                    log("Touched on Stage");
+                    kai++;
+                    
+                    //ストーンが止まったら新しいストーンを追加
+                    //今後はターン制とするためターンを切り替えて色の違うストーンを追加する
+                    if (unit->boolStoneadd()){
+                        Stone* unit = CUR_STONE_MNG.createUnit(1, "stone_red.png");
+                        curlingStage->addChild(unit);
+                        //初期化
+                        kai = 0;
+                        firsttouch = false;
+                        secondtouch = true;
+                    }
+                }
+            }
+            
         }
     }
     
     //仮実装
     //ストーンもステージもタッチしていなかった場合はストーンを追加する
-    if(isTouch == false) {
+    /*if(isTouch == false) {
         // ストーンの登録（仮にIDを1でひとつ登録）
         Stone* unit = CUR_STONE_MNG.createUnit(1, "stone_red.png");
         curlingStage->addChild(unit);
-    }
+    }*/
+    
     
     return true;
 }
