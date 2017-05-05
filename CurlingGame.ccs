@@ -1,5 +1,5 @@
 <Solution>
-  <PropertyGroup Name="CurlingGame" Version="2.1.0.0" Type="CocosStudio" />
+  <PropertyGroup Name="CurlingGame" Version="3.10.0.0" Type="CocosStudio" />
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">

@@ -143,7 +143,7 @@ bool GameScene::onTouchBegan(Touch* pTouch, Event* pEvent)
                     log("Touched on Stage");
                     kai++;
                     
-                    //ストーンが止まったら新しいストーンを追加
+                    //ストーンが止まった後タップした場合新しいストーンを追加
                     //今後はターン制とするためターンを切り替えて色の違うストーンを追加する
                     if (unit->boolStoneadd()){
                         Stone* unit = CUR_STONE_MNG.createUnit(1, "stone_red.png");
